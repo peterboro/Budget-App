@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h1><%= @category.name %></h1>
+      <p>Total amount spent: <%= number_to_currency(@category.total_amount) %></p>
+      <%= image_tag(@category.icon, class: "card-img-top") %>
+    </div>
+    <div class="col-md-4">
+      <%= link_to edit_category_path(@category), class: "btn btn-primary" do %>
+        Edit category
+      <% end %>
+      <%= link_to category_path(@category), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" do %>
+        Delete category
+      <% end %>
+    </div>
+  </div>
+</div>
