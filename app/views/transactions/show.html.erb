@@ -1,0 +1,14 @@
+<div class="container">
+  <h1><%= @transaction.name %></h1>
+  <p>Amount: <%= number_to_currency(@transaction.amount) %></p>
+  <p>Categories: <%= @transaction.categories.map(&:name).join(', ') %></p>
+  <%= link_to edit_category_transaction_path(@category, @transaction), class: "btn btn-primary" do %>
+    Edit transaction
+  <% end %>
+  <%= link_to category_transactions_path(@category), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" do %>
+    Delete transaction
+  <% end %>
+  <%= link_to category_transactions_path(@category), class: "btn btn-secondary" do %>
+    Back
+  <% end %>
+</div>

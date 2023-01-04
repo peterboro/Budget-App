@@ -1,0 +1,23 @@
+<div class="container mt-5">
+  <div class="row">
+    <% @categories.each do |category| %>
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <%= link_to category_path(category) do %>
+            <%= image_tag(category.icon, class: "card-img-top") %>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title font-weight-bold"><%= category.name %></h5>
+              <p class="card-text mt-auto font-weight-bold"><%= number_to_currency(category.total_amount) %></p>
+            </div>
+          <% end %>
+          <%= link_to category_transactions_path(category), class: "btn btn-secondary btn-block mt-2" do %>
+            View transactions
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to new_category_path, class: "btn btn-primary mt-3" do %>
+    Add a new category
+  <% end %>
+</div>

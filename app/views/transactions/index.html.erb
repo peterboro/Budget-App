@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>Transactions for <%= @category.name %></h1>
+  <p>Total amount spent: <%= number_to_currency(@category.total_amount) %></p>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @transactions.each do |transaction| %>
+        <tr>
+          <td><%= transaction.name %></td>
+          <td><%= number_to_currency(transaction.amount) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to new_category_transaction_path(@category), class: "btn btn-primary" do %>
+    Add a new transaction
+  <% end %>
+  <%= link_to categories_path, class: "btn btn-secondary" do %>
+    Back
+  <% end %>
+</div>

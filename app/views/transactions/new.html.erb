@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>New Transaction</h1>
+
+  <%= form_with model: @transaction, url: category_transactions_path(@category), local: true do |form| %>
+    <div class="form-group">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :amount %>
+      <%= form.number_field :amount, class: "form-control" %>
+    </div><br>
+    <%= form.submit "Save", class: "btn btn-primary" %>
+  <% end %>
+</div>

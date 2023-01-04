@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Log In</h1>
+<%= form_for @user, url: log_in_users_path do |f| %>
+    <label for="email">Email</label>
+    <%= f.email_field :email, placeholder: "Email" %><br><br>
+    <label for="password">Password</label>
+    <%= f.password_field :password, placeholder: "Password" %><br><br>
+    <%= f.check_box :remember_me %>
+    <%= f.label :remember_me %>
+    <%= f.submit "Log In" %>
+  <% end %>
+</div>
