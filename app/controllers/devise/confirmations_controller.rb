@@ -1,3 +1,5 @@
+require 'devise'
+
 class Devise::ConfirmationsController < Devise::ConfirmationsController
   # GET /resource/confirmation/new
   def new
