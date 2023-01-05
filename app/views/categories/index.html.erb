@@ -1,23 +1,22 @@
-<div class="container mt-5">
-  <div class="row">
-    <% @categories.each do |category| %>
-      <div class="col-md-4 mb-4">
-        <div class="card h-100">
-          <%= link_to category_path(category) do %>
-            <%= image_tag(category.icon, class: "card-img-top") %>
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title font-weight-bold"><%= category.name %></h5>
-              <p class="card-text mt-auto font-weight-bold"><%= number_to_currency(category.total_amount) %></p>
-            </div>
-          <% end %>
-          <%= link_to category_transactions_path(category), class: "btn btn-secondary btn-block mt-2" do %>
-            View transactions
-          <% end %>
+<section class="container">
+
+ <% @categories.each do |category| %>
+    <%= link_to category_transactions_path(category), class: "text-reset text-decoration-none" do %>
+      <div class="border border-1 d-flex my-3">
+        <img src="<%= category.icon%>" width="80px">
+        <h3 
+          class="m-2"><%= category.name %> 
+          <span class="d-block fs-6 fw-lighter mt-3"><%= "#{category.created_at.day}/#{category.created_at.month}/#{category.created_at.year}" %></span>
+        </h3>
+        <div class="ms-auto pt-5 pe-3">
+          <%= number_to_currency(category.total_amount) %>
         </div>
       </div>
     <% end %>
+ <% end %>
+
+  <div class="fixed-bottom mb-3 text-center">
+   <%= link_to "Add a new category", new_category_path, class:"btn btn-success fs-3 w-75"  %>
   </div>
-  <%= link_to new_category_path, class: "btn btn-primary mt-3" do %>
-    Add a new category
-  <% end %>
-</div>
+
+</section>
