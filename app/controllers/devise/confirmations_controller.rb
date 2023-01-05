@@ -1,6 +1,4 @@
-require 'devise'
-
-class Devise::ConfirmationsController < Devise::ConfirmationsController
+class Devise::ConfirmationsController < ApplicationController
   # GET /resource/confirmation/new
   def new
     # add your custom logic here
