@@ -4,8 +4,8 @@ class TransactionsController < ApplicationController
   before_action :set_category
 
   def index
-    @transactions = @category.transactions
-  end
+    @transactions = @category.transactions.where(user_id: current_user.id)
+  end  
 
   def show; end
 
