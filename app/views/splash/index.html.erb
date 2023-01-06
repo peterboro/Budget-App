@@ -1,36 +1,37 @@
-<div class="splash-container">
-  <h1>Welcome to My App</h1>
-  <% if current_user %>
-  <%= link_to "Categories", categories_path %>
-  <% else %>
-  <%= link_to "Sign up", new_user_registration_path, class: "button" %>
-  <%= link_to "Log in", new_user_session_path, class: "button" %>
-<% end %>
-</div>
+<section class="d-flex flex-column align-items-center gap-3 vh-100 text-white" style="background-color: #F2F6F5; position: relative;">
+  <%= image_tag "BudgetApp1.png", class: "img-fluid my-3" %>
+  <div style="position: absolute; bottom: 20px; left: 50%; transform: translate(-50%, 0); z-index: 1;">
+    <h1 class="text-center my-3", style="color: #3772c2">Welcome to Budget App</h1>
+    <div class="text-center w-100">
+      <% if current_user %>
+        <%= link_to "Categories", categories_path, class: 'btn btn-primary btn-lg w-50 my-3', style: "z-index: 1;" %>
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-primary btn-lg w-50 my-3', style: "z-index: 1;" %>
+        <%= link_to "Log in", new_user_session_path, class: 'btn btn-primary btn-lg w-50 my-3', style: "z-index: 1;" %>
+      <% end %>
+    </div>
+  </div>
+</section>
 
 <style>
-  .splash-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+  /* Style changes for screens smaller than 480px wide */
+  @media (max-width: 480px) {
+    .btn {
+      width: 100%; /* Make buttons take up the full width of the screen on small screens */
+    }
   }
 
-  .button {
-    display: inline-block;
-    margin: 0.5rem 1rem;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 0.25rem;
-    font-size: 1rem;
-    font-weight: 600;
-    line-height: 1;
-    text-align: center;
-    text-decoration: none;
-    white-space: nowrap;
-    background-color: #3498db;
-    color: #fff;
-    cursor: pointer;
+  /* Style changes for screens between 481px and 768px wide */
+  @media (min-width: 481px) and (max-width: 768px) {
+    .btn {
+      width: 50%; /* Make buttons take up half the width of the screen on medium screens */
+    }
+  }
+
+  /* Style changes for screens larger than 769px wide */
+  @media (min-width: 769px) {
+    .btn {
+      width: 25%; /* Make buttons take up a quarter of the width of the screen on large screens */
+    }
   }
 </style>
