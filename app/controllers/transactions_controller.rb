@@ -5,7 +5,7 @@ class TransactionsController < ApplicationController
 
   def index
     @transactions = @category.transactions.where(user_id: current_user.id)
-  end  
+  end
 
   def show; end
 
