@@ -89,6 +89,11 @@
 
 - [Live Demo Link](https://rails-biih.onrender.com)
 
+<!-- PROJECT DOCUMENTATION -->
+## 🚀 Project Documentation <a name="project documentation"></a>
+
+- [Documentation Link](https://www.loom.com/share/9b32f8cfc5d147d0a791722e85eca988)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
