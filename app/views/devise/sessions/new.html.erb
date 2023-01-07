@@ -1,0 +1,36 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+  <header style="background-color: #3772c2">
+    <nav class="navbar">
+      <div class="container-fluid d-flex align-items-center">
+        <%= link_to root_path do %> 
+          <%= image_tag "return.png", width: '30'%> 
+        <% end %>
+        <h4 class="text-white", style="margin-right: 150px">LOGIN</h4>
+      </div>
+    </nav>
+  </header>
+
+  <section class="container mt-5">
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field mb-3">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control w-100", placeholder: "Email" %>
+    </div>
+
+    <div class="field mb-3">
+      <%= f.password_field :password, autocomplete: "current-password", class: "form-control w-100", placeholder: "Password" %>
+    </div>
+
+    <div class="text-center">
+      <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+        <%= link_to "Forgot password?", new_password_path(resource_name), class: "text-secondary"%>
+      <% end %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Log In", class: "btn btn-primary w-100" %>
+    </div>
+  </section>
+
+<% end %>

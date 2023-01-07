@@ -1,15 +1,80 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+/* :root {
+  --primary-color: #00b4e6;
+  --secondary-color: #4d4d4d;
+  --tertiary-color: #9b9b9b;
+  --quaternary-color: #e8e8e8;
+  --quinary-color: #fff;
+}
+
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="number"],
+form input[type="date"],
+form input[type="time"],
+form select {
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--secondary-color);
+  background-color: var(--quaternary-color);
+  border: 1px solid var(--tertiary-color);
+  border-radius: 4px;
+}
+
+form input[type="submit"] {
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--quinary-color);
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 4px;
+}
+
+form input[type="submit"]:hover {
+  cursor: pointer;
+  background-color: var(--secondary-color);
+}
+
+a {
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--secondary-color);
+  text-decoration: none;
+} */

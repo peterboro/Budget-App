@@ -1,16 +1,66 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BudgetApp</title>
+    <title>Budget App</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+    
+    <% if user_signed_in? %>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary px-3">
+  <button class="navbar-toggler ml-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <% if current_page?(root_path) %>
+    <h2 class="navbar-brand">CATEGORIES</h2>  
+    <% elsif current_page?(categories_path) %>
+    <h2 class="navbar-brand">CATEGORIES</h2>
+    <% elsif current_page?(new_category_path) %>
+    <h2 class="navbar-brand">NEW CATEGORY</h2>
+    <%= link_to image_tag("return.png", width: "20px"), categories_path, class: "text-white" %>
+    <% elsif current_page?(category_transactions_path(@category)) %>
+    <h2 class="navbar-brand">TRANSACTIONS</h2>
+    <% elsif current_page?(new_category_transaction_path(@category)) %>
+    <h2 class="navbar-brand">NEW TRANSACTION</h2>
+    <%= link_to image_tag("return.png", width: "20px"), category_transactions_path(@category), class: "text-white" %>
+  <% end %>
+
+
+  <%= image_tag "search-interface-symbol.png", width: "20px", role: "button" %>
+
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to "Home", root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Categories", categories_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link", position: "right" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="d-flex">
+    <div class="d-flex align-items-center">
+      <p class="text-white m-0">Welcome, <%= current_user.name %></p>
+    </div>
+  </div>
+</nav>
+    <% end %>
     <%= yield %>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   </body>
 </html>

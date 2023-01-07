@@ -1,0 +1,68 @@
+<style>
+  body {
+    font-family: 'Open Sans', sans-serif;
+  }
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  .btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    white-space: nowrap;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    border-radius: 0.25rem;
+  }
+  .btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+</style>
+<div class="container">
+  <h1>New Transaction</h1>
+
+<%= form_with model: @transaction, url: category_transactions_path(@category), local: true do |form| %>
+<div class="form-group">
+<%= form.label :date %>
+<%= form.date_field :date, class: "form-control" %>
+</div>
+    <div class="form-group">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
+<div class="form-group">
+<%= form.label :amount %>
+<%= form.number_field :amount, class: "form-control" %>
+</div>
+<div class="form-group">
+<%= form.label :category %>
+<%= form.collection_select :category_id, Category.all, :id, :name, { include_blank: true }, class: "form-control" %>
+</div><br><br>
+<%= form.submit "Save", class: "btn btn-primary btn-lg btn-block mb-3" %>
+<% end %>
+
+</div>
